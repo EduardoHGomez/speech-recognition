@@ -5,8 +5,8 @@ async function main () {
     const audio = document.querySelector('#audio')
 
     const stream = await navigator.mediaDevices.getUserMedia({ // <1>
-      video: false,
-      audio: true,
+        video: false,
+        audio: true,
     })
 
     const [track] = stream.getAudioTracks()
@@ -20,7 +20,7 @@ async function main () {
     const buffers = []
 
     audioRecorder.port.addEventListener('message', event => { // <6>
-      buffers.push(event.data.buffer)
+        buffers.push(event.data.buffer)
     })
     audioRecorder.port.start() // <7>
 
@@ -28,30 +28,30 @@ async function main () {
     audioRecorder.connect(audioContext.destination)
 
     buttonStart.addEventListener('click', event => {
-      buttonStart.setAttribute('disabled', 'disabled')
-      buttonStop.removeAttribute('disabled')
+        buttonStart.setAttribute('disabled', 'disabled')
+        buttonStop.removeAttribute('disabled')
 
-      const parameter = audioRecorder.parameters.get('isRecording')
-      parameter.setValueAtTime(1, audioContext.currentTime) // <9>
+        const parameter = audioRecorder.parameters.get('isRecording')
+        parameter.setValueAtTime(1, audioContext.currentTime) // <9>
 
-      buffers.splice(0, buffers.length)
+        buffers.splice(0, buffers.length)
     })
 
     buttonStop.addEventListener('click', event => {
-      buttonStop.setAttribute('disabled', 'disabled')
-      buttonStart.removeAttribute('disabled')
+        buttonStop.setAttribute('disabled', 'disabled')
+        buttonStart.removeAttribute('disabled')
 
-      const parameter = audioRecorder.parameters.get('isRecording')
-      parameter.setValueAtTime(0, audioContext.currentTime) // <10>
+        const parameter = audioRecorder.parameters.get('isRecording')
+        parameter.setValueAtTime(0, audioContext.currentTime) // <10>
 
-      const blob = encodeAudio(buffers, settings) // <11>
-      const url = URL.createObjectURL(blob)
+        const blob = encodeAudio(buffers, settings) // <11>
+        const url = URL.createObjectURL(blob)
 
-      audio.src = url
+        audio.src = url
     })
   } catch (err) {
     console.error(err)
   }
 }
 
-    main()
+main()
