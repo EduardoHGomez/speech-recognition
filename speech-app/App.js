@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 import { Pressable } from 'react-native';
 
@@ -14,13 +14,10 @@ export default function App() {
 	return (
 		<View style={styles.container}>
 				<Text>Welcome to Edu App!</Text>
-				<Pressable
-					style={styles.recordButton}
-					onPress={updateCount}
-					title='Press me'
-					>
-				</Pressable>	
 				<Text>Current count: {count}</Text>
+			<Pressable style={styles.button} onPress={updateCount}> 
+				<Text>Press me!</Text>
+			</Pressable>
 			<StatusBar style="auto" />
 		</View>
 	);
@@ -33,8 +30,14 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
     },
-	recordButton: {
-		backgroundColor: 'red',
-	}
+	button: {
+		alignItems: 'center',
+		justifyContent: 'center',
+		paddingVertical: 12,
+		paddingHorizontal: 32,
+		borderRadius: 4,
+		elevation: 3,
+		backgroundColor: 'black',
+  },
 
 });
