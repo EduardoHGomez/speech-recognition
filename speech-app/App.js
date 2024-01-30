@@ -14,7 +14,12 @@ export default function App() {
 		<View style={styles.container}>
 			{
 				isRecording ?
-				<Text>Recording</Text>
+				<View>
+					<Text>Recording</Text>
+					<Pressable style={styles.audioButton} onPress={toggleRecording}> 
+						<Text>Stop recording</Text>
+					</Pressable>
+				</View>
 				:
 				<Pressable style={styles.audioButton} onPress={toggleRecording}> 
 					<Text style={styles.audioButtonText}>Press here!</Text>
