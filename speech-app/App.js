@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 import { Pressable } from 'react-native';
+import Activities from './components/Activities';
 
 export default function App() {
 	const [isRecording, setIsRecording] = useState(false);
@@ -26,7 +27,10 @@ export default function App() {
 				</Pressable>
 			}
 			<StatusBar style="auto" />
+
+			<Activities/>
 		</View>
+
 	);
 }
 
