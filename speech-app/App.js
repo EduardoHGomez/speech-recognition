@@ -17,16 +17,10 @@ export default function App() {
 				<View>
 					<Text>Recording</Text>
 					<Pressable style={styles.audioButton} onPress={toggleRecording}> 
-						<Text>Stop recording</Text>
+						<Text></Text>
 					</Pressable>
 				</View>
 				:
-				<Pressable style={styles.audioButton} onPress={toggleRecording}> 
-					<Text style={styles.audioButtonText}>Press here!</Text>
-				</Pressable>
-				<Pressable style={styles.audioButton} onPress={toggleRecording}> 
-					<Text style={styles.audioButtonText}>Press here!</Text>
-				</Pressable>
 				<Pressable style={styles.audioButton} onPress={toggleRecording}> 
 					<Text style={styles.audioButtonText}>Press here!</Text>
 				</Pressable>
@@ -52,7 +46,10 @@ const styles = StyleSheet.create({
 		elevation: 3,
 		backgroundColor: '#1e3a8a',
   },
-  audioButtonText: {
+	audioButtonText: {
+		color: 'white',
+  },
+	audioButtonText2: {
 		color: 'white',
   }
 
