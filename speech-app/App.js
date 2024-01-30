@@ -16,7 +16,7 @@ export default function App() {
 				<Text>Welcome to Edu App!</Text>
 				<Text>Current count: {count}</Text>
 			<Pressable style={styles.button} onPress={updateCount}> 
-				<Text>Press me!</Text>
+				<Text>Press here!</Text>
 			</Pressable>
 			<StatusBar style="auto" />
 		</View>
@@ -37,7 +37,7 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 32,
 		borderRadius: 4,
 		elevation: 3,
-		backgroundColor: 'black',
+		backgroundColor: 'white',
   },
 
 });
