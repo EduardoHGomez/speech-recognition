@@ -24,6 +24,12 @@ export default function App() {
 				<Pressable style={styles.audioButton} onPress={toggleRecording}> 
 					<Text style={styles.audioButtonText}>Press here!</Text>
 				</Pressable>
+				<Pressable style={styles.audioButton} onPress={toggleRecording}> 
+					<Text style={styles.audioButtonText}>Press here!</Text>
+				</Pressable>
+				<Pressable style={styles.audioButton} onPress={toggleRecording}> 
+					<Text style={styles.audioButtonText}>Press here!</Text>
+				</Pressable>
 			}
 			<StatusBar style="auto" />
 		</View>
