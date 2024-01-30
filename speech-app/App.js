@@ -4,20 +4,27 @@ import React, { useState } from 'react';
 import { Pressable } from 'react-native';
 
 export default function App() {
-	const [count, setCount] = useState(0);
+	const [isRecording, setIsRecording] = useState(false);
 
-	const updateCount = () => {
-		setCount(count + 1);
-		console.log('here');
+	const toggleRecording = () => {
+		setIsRecording(!isRecording);
 	}
 
 	return (
 		<View style={styles.container}>
-				<Text>Welcome to Edu App!</Text>
-				<Text>Current count: {count}</Text>
-			<Pressable style={styles.button} onPress={updateCount}> 
-				<Text>Press me!</Text>
-			</Pressable>
+			{
+				isRecording ?
+				<View>
+					<Text>Recording</Text>
+					<Pressable style={styles.audioButton} onPress={toggleRecording}> 
+						<Text>Stop recording</Text>
+					</Pressable>
+				</View>
+				:
+				<Pressable style={styles.audioButton} onPress={toggleRecording}> 
+					<Text style={styles.audioButtonText}>Press here!</Text>
+				</Pressable>
+			}
 			<StatusBar style="auto" />
 		</View>
 	);
@@ -30,14 +37,17 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
     },
-	button: {
+	audioButton: {
 		alignItems: 'center',
 		justifyContent: 'center',
 		paddingVertical: 12,
 		paddingHorizontal: 32,
-		borderRadius: 4,
+		borderRadius: 100,
 		elevation: 3,
-		backgroundColor: 'black',
+		backgroundColor: '#1e3a8a',
   },
+  audioButtonText: {
+		color: 'white',
+  }
 
 });
