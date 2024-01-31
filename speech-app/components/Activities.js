@@ -1,13 +1,10 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
-import { Pressable } from 'react-native';
 import { TextInput, Button } from 'react-native';
-import supabase from "../config/supabaseClient";
-
+import supabase from '../config/supabaseClient';
 
 function Activities () {
-    const [text, setText] = useState('');
+    const [category, setCategory] = useState('');
     const [formError, setFormError] = useState(null);
 
     const handleSubmit = async(e) => {
@@ -15,11 +12,11 @@ function Activities () {
 		
 		// Supabase 
 		const { data, error } = await supabase
-		.from('quotes')
-		.insert([{ quote, author }])
+        .from('activities')
+		.insert({ category }) 
 
 		if (error) {
-			console.log(error);	
+			alert(error.message);	
 		}
 		if (data) {
             setText('');
@@ -33,11 +30,11 @@ function Activities () {
         <View>
             <TextInput
                 style={styles.input}
-                onChangeText={(text) => setText(text)}
+                onChangeText={(category) => setCategory(category)}
                 placeholder='Activity' 
-                value={text}
-            ></TextInput>
-            
+                value={category}
+                />
+
             <Button
                 onPress={handleSubmit}
                 title="Send Task"
