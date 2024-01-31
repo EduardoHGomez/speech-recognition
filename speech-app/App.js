@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 import { Pressable } from 'react-native';
+import Activities from './components/Activities';
 
 export default function App() {
 	const [isRecording, setIsRecording] = useState(false);
@@ -17,7 +18,7 @@ export default function App() {
 				<View>
 					<Text>Recording</Text>
 					<Pressable style={styles.audioButton} onPress={toggleRecording}> 
-						<Text>Stop recording</Text>
+						<Text></Text>
 					</Pressable>
 				</View>
 				:
@@ -26,7 +27,10 @@ export default function App() {
 				</Pressable>
 			}
 			<StatusBar style="auto" />
+
+			<Activities/>
 		</View>
+
 	);
 }
 
@@ -46,7 +50,10 @@ const styles = StyleSheet.create({
 		elevation: 3,
 		backgroundColor: '#1e3a8a',
   },
-  audioButtonText: {
+	audioButtonText: {
+		color: 'white',
+  },
+	audioButtonText2: {
 		color: 'white',
   }
 
