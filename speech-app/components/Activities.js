@@ -10,7 +10,10 @@ function Activities () {
     const handleSubmit = async(e) => {
 		e.preventDefault();
 
+
         // Get latest timestamp
+
+
 
 
         // Update latest task with the amount of time spent, in minutes
@@ -28,12 +31,11 @@ function Activities () {
 
 		if (error) {
 			alert(error.message);	
-		}
-		if (data) {
-            setText('');
-            alert('Success');
+		} else {
+            // There was an if here => if (data)
+            setCategory('');
             setFormError(null);
-		}
+        }
 
 	}
 
@@ -50,6 +52,12 @@ function Activities () {
                 onPress={handleSubmit}
                 title="Send Task"
             />
+
+            <Button
+                onPress={() => setCategory('Homework')}
+                title="Homework"
+            />
+
 
         </View>
     )
