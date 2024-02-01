@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import React, { useState } from 'react';
 import { TextInput, Button } from 'react-native';
 import supabase from '../config/supabaseClient';
@@ -52,11 +52,33 @@ function Activities () {
                 onPress={handleSubmit}
                 title="Send Task"
             />
-
-            <Button
-                onPress={() => setCategory('Homework')}
-                title="Homework"
+            <View
+                style={{
+                    borderBottomColor: 'black',
+                    borderBottomWidth: StyleSheet.hairlineWidth,
+                    marginTop: 20,
+                    marginBottom: 20
+                }}
             />
+
+            <Pressable
+                style={styles.buttonComplete}
+                onPress={() => setCategory('Homework')}
+            > 
+                <Text style={{color: '#125c7a'}}>Press Here</Text>
+            </Pressable>
+            <Pressable
+                style={styles.buttonComplete}
+                onPress={() => setCategory('Homework')}
+            > 
+                <Text style={{color: '#125c7a'}}>Press Here</Text>
+            </Pressable>
+            <Pressable
+                style={styles.buttonComplete}
+                onPress={() => setCategory('Homework')}
+            > 
+                <Text style={{color: '#125c7a'}}>Press Here</Text>
+            </Pressable>
 
 
         </View>
@@ -70,6 +92,16 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         padding: 10,
     },
+	buttonComplete: {
+        marginTop: 10,
+		alignItems: 'center',
+		justifyContent: 'center',
+		paddingVertical: 12,
+		paddingHorizontal: 32,
+		borderRadius: 100,
+		elevation: 3,
+		backgroundColor: '#eaf1f4',
+  },
 });
 
 export default Activities
