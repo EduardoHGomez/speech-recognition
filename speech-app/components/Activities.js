@@ -26,6 +26,20 @@ function Activities () {
 			alert(error.message);	
 		} else {
             // There was an if here => if (data)
+            setFormError(null);
+        }
+
+    }
+
+    const insertSubmit = async(e) => {
+		const { data, error } = await supabase
+        .from('activities')
+		.insert({ category })
+
+		if (error) {
+			alert(error.message);	
+		} else {
+            // There was an if here => if (data)
             setCategory('');
             setFormError(null);
         }
@@ -55,15 +69,8 @@ function Activities () {
         d2 = d2.toISOString();
         updateLastRow(data[0].id, minutes_spent, d2);
         
-        
-
-
         // Add another row with created_at now() and finished_at NULL
-
-
-		// Supabase 
-
-		
+        insertSubmit(category);
 
 	}
 
