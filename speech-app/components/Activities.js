@@ -9,6 +9,17 @@ function Activities () {
 
     const handleSubmit = async(e) => {
 		e.preventDefault();
+
+        // Get latest timestamp
+
+
+        // Update latest task with the amount of time spent, in minutes
+
+        // Add another row with created_at now() and finished_at NULL
+
+
+
+
 		
 		// Supabase 
 		const { data, error } = await supabase
