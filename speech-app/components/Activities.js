@@ -7,24 +7,7 @@ function Activities () {
     const [category, setCategory] = useState('');
     const [formError, setFormError] = useState(null);
 
-    const handleSubmit = async(e) => {
-		e.preventDefault();
-
-
-        // Get latest timestamp
-
-
-
-
-        // Update latest task with the amount of time spent, in minutes
-
-        // Add another row with created_at now() and finished_at NULL
-
-
-
-
-		
-		// Supabase 
+    const submitFormat = async(e) => {
 		const { data, error } = await supabase
         .from('activities')
 		.insert({ category }) 
@@ -36,6 +19,39 @@ function Activities () {
             setCategory('');
             setFormError(null);
         }
+
+    }
+
+    const handleSubmit = async(e) => {
+		e.preventDefault();
+
+        // Get latest timestamp
+		const { data, error } = await supabase
+        .from('get_last_activity')
+        .select()
+
+		if (error) {
+            console.log(error);
+		} else {
+            console.log(data);
+        }
+
+        // Update latest task with the amount of time spent, in minutes
+        let created_at = new Date();
+        created_at = created_at.toISOString();
+
+        let minutes_spent;
+
+
+        
+
+
+        // Add another row with created_at now() and finished_at NULL
+
+
+		// Supabase 
+
+		
 
 	}
 
@@ -65,19 +81,19 @@ function Activities () {
                 style={styles.buttonComplete}
                 onPress={() => setCategory('Homework')}
             > 
-                <Text style={{color: '#125c7a'}}>Press Here</Text>
+                <Text style={{color: '#125c7a'}}>Homework</Text>
             </Pressable>
             <Pressable
                 style={styles.buttonComplete}
-                onPress={() => setCategory('Homework')}
+                onPress={() => setCategory('Procrastination')}
             > 
-                <Text style={{color: '#125c7a'}}>Press Here</Text>
+                <Text style={{color: '#125c7a'}}>Procrastination</Text>
             </Pressable>
             <Pressable
                 style={styles.buttonComplete}
-                onPress={() => setCategory('Homework')}
+                onPress={() => setCategory('Workout')}
             > 
-                <Text style={{color: '#125c7a'}}>Press Here</Text>
+                <Text style={{color: '#125c7a'}}>Workout</Text>
             </Pressable>
 
 
