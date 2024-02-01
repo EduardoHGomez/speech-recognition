@@ -4,6 +4,8 @@ import React, { useState } from 'react';
 import { Pressable } from 'react-native';
 import Activities from './components/Activities';
 
+// Build with eas build -p android --profile preview
+
 export default function App() {
 	const [isRecording, setIsRecording] = useState(false);
 
