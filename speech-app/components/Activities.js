@@ -7,10 +7,20 @@ function Activities () {
     const [category, setCategory] = useState('');
     const [formError, setFormError] = useState(null);
 
-    const submitFormat = async(e) => {
+    function diff_minutes(dt2, dt1) 
+    {
+        console.log(dt2);
+        console.log(dt1);
+        let diff = Math.abs(dt2 - dt1);
+        return Math.floor((diff/1000)/60);
+    }
+
+
+    const updateLastRow = async(id, minutes_spent, finished_at) => {
 		const { data, error } = await supabase
         .from('activities')
-		.insert({ category }) 
+		.update({ finished_at: finished_at, minutes_spent: minutes_spent})
+        .eq('id', id)
 
 		if (error) {
 			alert(error.message);	
@@ -37,12 +47,14 @@ function Activities () {
         }
 
         // Update latest task with the amount of time spent, in minutes
-        let created_at = new Date();
-        created_at = created_at.toISOString();
+        let d1 = new Date(data[0].created_at);
+        let d2 = new Date();
+        d2.setHours(d2.getHours() - 6);
+        let minutes_spent = diff_minutes(d2, d1);
 
-        let minutes_spent;
-
-
+        d2 = d2.toISOString();
+        updateLastRow(data[0].id, minutes_spent, d2);
+        
         
 
 
