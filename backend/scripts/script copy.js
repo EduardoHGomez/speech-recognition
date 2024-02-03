@@ -15,15 +15,15 @@ async function myFunc() {
         alert("Start pressed!");
     });
 
-    buttonStart.addEventListener((event) => {
-        alert("Start pressed!");
+    buttonStop.addEventListener((event) => {
+        alert("Stop pressed!");
     });
 
 
-    const stream = await navigator.mediaDevices.getUserMedia({
+    const stream = await navigator.mediaDevices.getUserMedia({ // <1>
         video: false,
         audio: true,
-    })
+    });
 
 
 
