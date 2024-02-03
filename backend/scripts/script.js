@@ -10,10 +10,24 @@ async function myFunc() {
     const buttonStop = document.querySelector('#buttonStop')
     const audio = document.querySelector('#audio')
 
-    const stream = await navigator.mediaDevices.getUserMedia({
+
+    buttonStart.addEventListener((event) => {
+        alert("Start pressed!");
+    });
+
+    buttonStop.addEventListener((event) => {
+        alert("Stop pressed!");
+    });
+
+
+    const stream = await navigator.mediaDevices.getUserMedia({ // <1>
         video: false,
         audio: true,
-    })
+    });
+
+
+
+
 
 	console.log('here');
 
